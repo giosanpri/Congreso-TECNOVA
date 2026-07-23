@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TECNOVA 2026 | I Congreso Internacional de Innovación Tecnológica Aplicada - TEC-RED</title>
+  <meta name="description" content="Sitio Oficial del I Congreso Internacional de Innovación Tecnológica Aplicada TECNOVA 2026. Organizado por la red TEC-RED. 11 al 13 de Noviembre 2026 en Bogotá, Colombia.">
+  <meta name="keywords" content="TECNOVA 2026, TEC-RED, Congreso Innovación Tecnológica, Inteligencia Artificial, IoT, Ciberseguridad, Universidad Distrital, Educación Tecnológica">
+  <meta name="author" content="TEC-RED / Universidad Distrital Francisco José de Caldas">
+  
+  <!-- Favicon / Fonts / Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#inicio" class="logo-brand">
+        <img src="assets/logo_tecred.png" alt="Red TEC-RED Logo" class="logo-img">
+        <div class="brand-text">
+          <span class="brand-title">TECNOVA <span>2026</span></span>
+          <span class="brand-sub">RED TEC-RED</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+          <li><a href="#presentacion" class="nav-link">Presentación</a></li>
+          <li><a href="#areas" class="nav-link">Áreas Temáticas</a></li>
+          <li><a href="#convocatoria" class="nav-link">Convocatoria</a></li>
+          <li><a href="#envios" class="nav-link">Envíos</a></li>
+          <li><a href="#fechas" class="nav-link">Fechas</a></li>
+          <li><a href="#inscripcion" class="nav-link">Inscripción</a></li>
+          <li><a href="#comites" class="nav-link">Comités</a></li>
+          <li><a href="#lugar" class="nav-link">Lugar</a></li>
+          <li><a href="#programa" class="nav-link">Programa</a></li>
+          <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#inscripcion" class="btn btn-primary">Inscribirse Gratis</a>
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Abrir Menú">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==========================================
+         HERO SECTION (AMPLIADO Y MÁS GRANDE)
+         ========================================== -->
+    <section id="inicio" class="hero-section">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge-container">
+            <span class="hero-badge highlight"><i class="bi bi-star-fill"></i> I Edición Internacional</span>
+            <span class="hero-badge"><i class="bi bi-calendar3"></i> 11 - 13 Noviembre, 2026</span>
+            <span class="hero-badge"><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span>
+          </div>
+
+          <h1 class="hero-title">I Congreso Internacional de <span>Innovación Tecnológica</span> Aplicada</h1>
+          
+          <div class="hero-motto">
+            “Conocimiento aplicado para el desarrollo”
+          </div>
+
+          <p class="hero-lead">
+            Un espacio internacional para la reflexión, co-creación y articulación de capacidades entre la academia, el sector productivo y la sociedad. Donde la investigación se transforma en soluciones reales.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#inscripcion" class="btn btn-primary"><i class="bi bi-pencil-square"></i> Inscribirse Gratis</a>
+            <a href="#envios" class="btn btn-secondary"><i class="bi bi-file-earmark-arrow-up"></i> Enviar Resumen</a>
+            <a href="#programa" class="btn btn-secondary"><i class="bi bi-calendar-event"></i> Ver Agenda</a>
+          </div>
+
+          <!-- Countdown Timer -->
+          <div class="countdown-box">
+            <div class="countdown-title">
+              <i class="bi bi-clock-history"></i> Tiempo restante para el inicio del Congreso:
+            </div>
+            <div class="countdown-timer">
+              <div class="count-unit">
+                <span class="count-number" id="count-days">00</span>
+                <span class="count-label">Días</span>
+              </div>
+              <span class="count-sep">:</span>
+              <div class="count-unit">
+                <span class="count-number" id="count-hours">00</span>
+                <span class="count-label">Horas</span>
+              </div>
+              <span class="count-sep">:</span>
+              <div class="count-unit">
+                <span class="count-number" id="count-mins">00</span>
+                <span class="count-label">Minutos</span>
+              </div>
+              <span class="count-sep">:</span>
+              <div class="count-unit">
+                <span class="count-number" id="count-secs">00</span>
+                <span class="count-label">Segundos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HERO MEDIA DISPLAY (IMAGEN MÁS GRANDE CON OPCIÓN DE AMPLIAR) -->
+        <div class="hero-media-wrapper">
+          <div class="hero-media-card" id="heroMediaCard">
+            <img src="assets/tecnova_hero.jpg" alt="TECNOVA 2026 Banner Oficial del Congreso" class="hero-image" id="heroImage">
+            <div class="hero-card-overlay">
+              <div>
+                <h4>Plataforma de Innovación Aplicada</h4>
+                <p>Conferencias magistrales, ponencias presenciales/virtuales y ferias de empleabilidad.</p>
+              </div>
+              <button class="expand-btn-icon" id="openZoomHeroBtn" title="Ampliar imagen del congreso">
+                <i class="bi bi-arrows-angle-expand"></i> Ver más grande
+              </button>
+            </div>
+          </div>
+          <div class="floating-badge">
+            <i class="bi bi-check-circle-fill"></i> Evento 100% Gratuito
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECCIÓN DE LOGOS INSTITUCIONALES ALIADOS (NUEVA)
+         ========================================== -->
+    <section class="institutional-logos-section">
+      <div class="container">
+        <div class="logos-section-title">
+          Instituciones Organizadoras y Redes Aliadas al Congreso
+        </div>
+
+        <div class="institution-logos-grid">
+          
+          <div class="logo-card featured-red">
+            <img src="assets/logo_tecred.png" alt="Logo Red TEC-RED" class="logo-card-img">
+            <div class="logo-card-title">Red TEC-RED</div>
+          </div>
+
+          <div class="logo-card">
+            <img src="assets/logo_ud.png" alt="Logo Universidad Distrital" class="logo-card-img">
+            <div class="logo-card-title">Universidad Distrital Francisco José de Caldas</div>
+          </div>
+
+          <div class="logo-card">
+            <img src="assets/logo_umng.png" alt="Logo Universidad Militar Nueva Granada" class="logo-card-img">
+            <div class="logo-card-title">Universidad Militar Nueva Granada</div>
+          </div>
+
+          <div class="logo-card">
+            <img src="assets/logo_usbbog.png" alt="Logo Universidad de San Buenaventura" class="logo-card-img">
+            <div class="logo-card-title">Universidad de San Buenaventura</div>
+          </div>
+
+          <div class="logo-card">
+            <img src="assets/logo_ucomp.png" alt="Logo Fundación Universitaria Compensar" class="logo-card-img">
+            <div class="logo-card-title">Fundación Universitaria Compensar</div>
+          </div>
+
+          <div class="logo-card">
+            <img src="assets/logo_unmsm.jpg" alt="Logo Universidad Nacional Mayor de San Marcos" class="logo-card-img">
+            <div class="logo-card-title">Universidad Nacional Mayor de San Marcos</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PRESENTACIÓN Y OBJETIVOS
+         ========================================== -->
+    <section id="presentacion" class="section-bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge blue-badge"><i class="bi bi-info-circle-fill"></i> Sobre el Evento</span>
+          <h2 class="section-title">Presentación & Objetivos</h2>
+          <p class="section-description">
+            La educación técnica y tecnológica de nivel superior desempeña un papel estratégico como puente entre conocimiento, innovación, productividad y desarrollo sostenible.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text-content">
+            <h3 style="font-size:1.6rem; color:var(--blue-navy); margin-bottom:1rem;">Conocimiento transformado en impacto social y productivo</h3>
+            <p>
+              En un contexto marcado por la transformación digital, la inteligencia artificial, el Internet de las cosas, la analítica de datos, la ciberseguridad, la automatización y la sostenibilidad, el desafío actual radica en convertir las nuevas tecnologías en soluciones pertinentes, accesibles, éticas y sostenibles.
+            </p>
+            <p>
+              En respuesta a este reto surge el <strong>I Congreso Internacional de Innovación Tecnológica Aplicada – TECNOVA 2026</strong>, un espacio interinstitucional impulsado por la red <strong>TEC-RED</strong> para la divulgación, co-creación y articulación de capacidades alrededor del conocimiento aplicado.
+            </p>
+            <div class="highlight-box">
+              <p>
+                TECNOVA 2026 reconoce que la innovación se construye en aulas, laboratorios, semilleros, talleres, empresas y comunidades donde el conocimiento responde a problemas reales.
+              </p>
+            </div>
+          </div>
+
+          <div class="objectives-grid">
+            <div class="objective-card">
+              <div class="obj-icon">01</div>
+              <div class="obj-content">
+                <h4>Socializar y Visibilizar</h4>
+                <p>Difundir resultados de investigación aplicada, desarrollos tecnológicos y prototipos orientados a resolver problemáticas sociales, productivas y ambientales.</p>
+              </div>
+            </div>
+
+            <div class="objective-card">
+              <div class="obj-icon">02</div>
+              <div class="obj-content">
+                <h4>Fortalecer la Articulación</h4>
+                <p>Impulsar la cooperación investigativa y tecnológica entre instituciones de educación superior, centros de investigación y grupos de innovación.</p>
+              </div>
+            </div>
+
+            <div class="objective-card">
+              <div class="obj-icon">03</div>
+              <div class="obj-content">
+                <h4>Promover Alianzas</h4>
+                <p>Conectar la academia, el sector productivo, entidades públicas y organizaciones sociales para formular proyectos sostenibles de alto impacto territorial.</p>
+              </div>
+            </div>
+
+            <div class="objective-card">
+              <div class="obj-icon">04</div>
+              <div class="obj-content">
+                <h4>Fomentar Talentos</h4>
+                <p>Ofrecer talleres, conferencias y espacios de apropiación tecnológica estratégica para estudiantes, docentes, investigadores y emprendedores.</p>
+              </div>
+            </div>
+
+            <div class="objective-card">
+              <div class="obj-icon">05</div>
+              <div class="obj-content">
+                <h4>Consolidar Redes</h4>
+                <p>Construir una comunidad académica y profesional sostenida en la red TEC-RED con proyecciones nacionales e internacionales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ÁREAS TEMÁTICAS
+         ========================================== -->
+    <section id="areas">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="bi bi-cpu-fill"></i> Líneas Temáticas</span>
+          <h2 class="section-title">Áreas Temáticas de TECNOVA 2026</h2>
+          <p class="section-description">
+            Ejes temáticos que orientan la presentación de ponencias, desarrollos tecnológicos, prototipos y experiencias de transferencia de conocimiento.
+          </p>
+        </div>
+
+        <!-- Search input for filtering areas -->
+        <div class="search-filter-box">
+          <i class="bi bi-search search-icon"></i>
+          <input type="text" id="areaSearchInput" class="search-input" placeholder="Buscar área temática (ej. Inteligencia Artificial, Ciberseguridad, Sostenibilidad)...">
+        </div>
+
+        <div class="areas-grid" id="areasGrid">
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 01</span>
+            <div class="area-icon-title">
+              <i class="bi bi-gear-wide-connected"></i>
+              <h3 class="area-title">Desarrollo Tecnológico e Innovación Aplicada</h3>
+            </div>
+            <p class="area-desc">
+              Investigaciones, desarrollos experimentales, prototipos, productos, servicios y soluciones orientadas a resolver necesidades de empresas, entidades públicas y comunidades.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 02</span>
+            <div class="area-icon-title">
+              <i class="bi bi-robot"></i>
+              <h3 class="area-title">IA, Analítica de Datos y Automatización</h3>
+            </div>
+            <p class="area-desc">
+              Diseño y aplicación de inteligencia artificial, machine learning, IA agéntica, minería de datos, visión por computador, procesamiento de lenguaje natural y automatización.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 03</span>
+            <div class="area-icon-title">
+              <i class="bi bi-wifi"></i>
+              <h3 class="area-title">IoT y Sistemas Inteligentes Conectados</h3>
+            </div>
+            <p class="area-desc">
+              Soluciones con sensores, dispositivos conectados, sistemas embebidos, edge computing y monitoreo en agricultura, salud, industria, logística y movilidad.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 04</span>
+            <div class="area-icon-title">
+              <i class="bi bi-code-slash"></i>
+              <h3 class="area-title">Transformación Digital e Ingeniería de Software</h3>
+            </div>
+            <p class="area-desc">
+              Digitalización de procesos, arquitectura de software, computación en la nube, DevOps, interoperabilidad, UX/UI y modernización de organizaciones.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 05</span>
+            <div class="area-icon-title">
+              <i class="bi bi-shield-lock"></i>
+              <h3 class="area-title">Ciberseguridad, Privacidad y Confianza Digital</h3>
+            </div>
+            <p class="area-desc">
+              Seguridad de la información, protección de datos, gestión de riesgos tecnológicos, seguridad en redes y aplicaciones, identidad digital y uso ético.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 06</span>
+            <div class="area-icon-title">
+              <i class="bi bi-headset-vr"></i>
+              <h3 class="area-title">Realidad Inmersiva (VR/AR/XR) y Videojuegos</h3>
+            </div>
+            <p class="area-desc">
+              Entornos inmersivos, simuladores, experiencias interactivas, videojuegos serios y contenidos digitales aplicados a la educación, salud, cultura y turismo.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 07</span>
+            <div class="area-icon-title">
+              <i class="bi bi-tree"></i>
+              <h3 class="area-title">Tecnología para la Sostenibilidad y Territorios Inteligentes</h3>
+            </div>
+            <p class="area-desc">
+              Monitoreo ambiental, eficiencia energética, energías renovables, economía circular, gestión hídrica, movilidad sostenible y smart cities.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 08</span>
+            <div class="area-icon-title">
+              <i class="bi bi-journal-bookmark-fill"></i>
+              <h3 class="area-title">Innovación Educativa y Talento Tecnológico</h3>
+            </div>
+            <p class="area-desc">
+              Metodologías, educación virtual, microaprendizaje, laboratorios remotos, simulación y formación de competencias para la Industria 4.0.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 09</span>
+            <div class="area-icon-title">
+              <i class="bi bi-people-fill"></i>
+              <h3 class="area-title">Gestión del Conocimiento y Apropiación Social</h3>
+            </div>
+            <p class="area-desc">
+              Comunidades de práctica, memoria organizacional, ciencia ciudadana, innovación abierta y transferencia del conocimiento tecnológico a comunidades.
+            </p>
+          </div>
+
+          <div class="area-card">
+            <span class="area-number">ÁREA 10</span>
+            <div class="area-icon-title">
+              <i class="bi bi-rocket-takeoff-fill"></i>
+              <h3 class="area-title">Emprendimiento y Transferencia Tecnológica</h3>
+            </div>
+            <p class="area-desc">
+              Empresas de base tecnológica (spin-offs/startups), incubación, aceleración, propiedad intelectual, vigilancia tecnológica y alianzas Universidad-Empresa-Estado.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CONVOCATORIA DE PONENCIAS
+         ========================================== -->
+    <section id="convocatoria" class="section-bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge blue-badge"><i class="bi bi-megaphone-fill"></i> Participa como Ponente</span>
+          <h2 class="section-title">Convocatoria de Ponencias</h2>
+          <p class="section-description">
+            Invitación abierta a la comunidad académica, científica, profesional y empresarial para compartir sus desarrollos, prototipos e investigaciones aplicadas.
+          </p>
+        </div>
+
+        <div style="background-color:var(--bg-card); border-radius:var(--radius-lg); padding:2.5rem; border:1px solid var(--border-color); box-shadow:var(--shadow-md);">
+          <div style="display:grid; grid-template-columns: 2fr 1fr; gap:2.5rem; align-items:center;">
+            <div>
+              <h3 style="font-size:1.5rem; color:var(--blue-navy); margin-bottom:1rem;">¿Quiénes pueden participar?</h3>
+              <p style="color:var(--text-secondary); margin-bottom:1.25rem; font-size:1.02rem; line-height:1.7;">
+                Se convoca a docentes, investigadores, estudiantes, egresados, emprendedores, profesionales, grupos y semilleros de investigación de instituciones de educación superior, empresas y entidades públicas o sociales.
+              </p>
+
+              <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-top:1.5rem;">
+                <div style="background:var(--blue-light); padding:0.6rem 1rem; border-radius:var(--radius-md); font-weight:700; color:var(--blue-navy);">
+                  <i class="bi bi-person-workspace" style="color:var(--orange-primary);"></i> Modalidad Presencial (Bogotá)
+                </div>
+                <div style="background:var(--blue-light); padding:0.6rem 1rem; border-radius:var(--radius-md); font-weight:700; color:var(--blue-navy);">
+                  <i class="bi bi-laptop" style="color:var(--orange-primary);"></i> Modalidad Virtual Internacional
+                </div>
+              </div>
+            </div>
+
+            <div style="background:linear-gradient(135deg, var(--blue-navy) 0%, var(--blue-dark) 100%); color:#FFF; padding:2rem; border-radius:var(--radius-md); text-align:center;">
+              <i class="bi bi-gift-fill" style="font-size:2.5rem; color:var(--orange-primary); margin-bottom:0.5rem; display:block;"></i>
+              <h4 style="color:#FFF; font-size:1.25rem; margin-bottom:0.5rem;">Participación 100% Gratuita</h4>
+              <p style="font-size:0.9rem; color:#CBD5E1; margin-bottom:1.25rem;">Tanto para asistentes como para ponentes seleccionados.</p>
+              <a href="#envios" class="btn btn-primary" style="width:100%;"><i class="bi bi-send-fill"></i> Ver Normas de Envío</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         ENVÍO DE RESÚMENES Y ARTÍCULOS
+         ========================================== -->
+    <section id="envios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="bi bi-file-earmark-text-fill"></i> Guía de Envío</span>
+          <h2 class="section-title">Envío de Resúmenes y Artículos</h2>
+          <p class="section-description">
+            Conoce los pasos y directrices académicas para someter tus propuestas al Comité Académico del Congreso TECNOVA 2026.
+          </p>
+        </div>
+
+        <div class="submission-grid">
+          <!-- Step 1: Abstract -->
+          <div class="submission-card featured">
+            <div class="sub-header">
+              <div class="sub-icon"><i class="bi bi-journal-text"></i></div>
+              <div>
+                <span style="font-size:0.8rem; font-weight:800; color:var(--orange-primary); text-transform:uppercase;">Etapa 1 Inicial</span>
+                <h3>Envío de Resúmenes</h3>
+              </div>
+            </div>
+            
+            <p style="color:var(--text-secondary); margin-bottom:1rem;">
+              En esta primera etapa se requiere enviar un resumen estructurado para evaluación inicial por el Comité Académico.
+            </p>
+
+            <ul class="rules-list">
+              <li><strong>Extensión máxima:</strong> 600 palabras.</li>
+              <li><strong>Estructura:</strong> Problema abordado, objetivo, metodología, principales resultados y contribución tecnológica/social.</li>
+              <li><strong>Autores:</strong> Máximo cuatro (4) autores por trabajo.</li>
+              <li><strong>Tipos de trabajos:</strong> Trabajos finalizados, investigaciones en curso, proyectos de prototipado o artículos de revisión temática.</li>
+              <li><strong>Aclaración:</strong> Especificar al final si la presentación será <em>Presencial</em> o <em>Virtual</em>.</li>
+            </ul>
+
+            <div class="email-box">
+              <span>Enviar a:</span>
+              <span class="email-text">tecred@usbbog.edu.co</span>
+            </div>
+
+            <button class="btn btn-primary" id="openAbstractModalBtn">
+              <i class="bi bi-magic"></i> Diligenciar y Enviar Resumen
+            </button>
+          </div>
+
+          <!-- Step 2: Full Article -->
+          <div class="submission-card">
+            <div class="sub-header">
+              <div class="sub-icon"><i class="bi bi-journal-check"></i></div>
+              <div>
+                <span style="font-size:0.8rem; font-weight:800; color:var(--blue-navy); text-transform:uppercase;">Etapa 2 Final</span>
+                <h3>Envío de Artículos Completo</h3>
+              </div>
+            </div>
+
+            <p style="color:var(--text-secondary); margin-bottom:1rem;">
+              Los autores cuyos resúmenes sean aprobados deberán elaborar y remitir el artículo completo bajo la plantilla oficial.
+            </p>
+
+            <ul class="rules-list">
+              <li><strong>Plantilla oficial:</strong> Formato institucional de la <em>Revista Vínculos</em> (Universidad Distrital).</li>
+              <li><strong>Originalidad:</strong> Criterios éticos, editoriales y rigor académico.</li>
+              <li><strong>Publicación:</strong> Los mejores artículos seleccionados formarán parte de las memorias con opción de publicación editorial.</li>
+            </ul>
+
+            <div style="background-color:var(--blue-light); padding:1.25rem; border-radius:var(--radius-md); margin-bottom:1.5rem; border:1px solid var(--blue-border);">
+              <h5 style="color:var(--blue-navy); font-size:0.95rem; margin-bottom:0.3rem;">Descarga de Plantilla Revista Vínculos:</h5>
+              <p style="font-size:0.88rem; color:var(--text-secondary); margin-bottom:0.75rem;">Accede a la opción "DESCARGA AQUÍ LA PLANTILLA DE LA REVISTA".</p>
+              <a href="https://revistas.udistrital.edu.co/index.php/vinculos/3" target="_blank" class="btn btn-secondary" style="width:100%; font-size:0.88rem;">
+                <i class="bi bi-box-arrow-up-right"></i> Ir al Portal de la Revista Vínculos
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         FECHAS IMPORTANTES
+         ========================================== -->
+    <section id="fechas" class="section-bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge blue-badge"><i class="bi bi-calendar-check-fill"></i> Calendario Académico</span>
+          <h2 class="section-title">Fechas Importantes</h2>
+          <p class="section-description">
+            Cronograma del proceso de recepción, evaluación y celebración del I Congreso Internacional TECNOVA 2026.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date"><i class="bi bi-calendar-event"></i> 01 de Septiembre, 2026</div>
+              <h3 class="timeline-title">Fecha Límite para Envío de Resúmenes</h3>
+              <p class="timeline-desc">Cierre de la convocatoria para la recepción de resúmenes de ponencia al correo tecred@usbbog.edu.co.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date"><i class="bi bi-bell-fill"></i> 14 de Septiembre, 2026</div>
+              <h3 class="timeline-title">Notificación de Aprobación de Resúmenes</h3>
+              <p class="timeline-desc">Envío de dictámenes emitidos por el Comité Académico y Evaluador a las cuentas de correo de los autores.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-date"><i class="bi bi-file-earmark-arrow-up-fill"></i> 19 de Octubre, 2026</div>
+              <h3 class="timeline-title">Fecha Límite para Envío de Artículos Completo</h3>
+              <p class="timeline-desc">Recepción de los artículos extensos adaptados a la plantilla de la Revista Vínculos para memorias.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot" style="background-color:var(--orange-primary); border-color:#FFF;"></div>
+            <div class="timeline-content" style="border-color:var(--orange-primary); background:linear-gradient(180deg, #FFF 0%, var(--orange-light) 100%);">
+              <div class="timeline-date" style="color:var(--orange-dark);"><i class="bi bi-award-fill"></i> 11, 12 y 13 de Noviembre, 2026</div>
+              <h3 class="timeline-title" style="color:var(--orange-dark);">Celebración del Congreso TECNOVA 2026</h3>
+              <p class="timeline-desc">Jornadas de conferencias, ponencias presenciales/virtuales, empleabilidad y emprendimiento en Bogotá.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         INSCRIPCIÓN AL CONGRESO
+         ========================================== -->
+    <section id="inscripcion">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="bi bi-person-plus-fill"></i> Registro Gratuito</span>
+          <h2 class="section-title">Inscripción al Congreso TECNOVA 2026</h2>
+          <p class="section-description">
+            Diligencia el formulario oficial de inscripción para confirmar tu participación y transmitir tus datos a <strong>tecred@usbbog.edu.co</strong>.
+          </p>
+        </div>
+
+        <div class="registration-container">
+          <form id="registrationForm">
+            <div class="form-grid">
+              
+              <div class="form-group">
+                <label class="form-label" for="regDocType">Tipo de Documento *</label>
+                <select class="form-control" id="regDocType" required>
+                  <option value="">Seleccione tipo...</option>
+                  <option value="CC">Cédula de Ciudadanía (CC)</option>
+                  <option value="CE">Cédula de Extranjería (CE)</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                  <option value="TI">Tarjeta de Identidad (TI)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regDocNum">Número de Documento *</label>
+                <input type="text" class="form-control" id="regDocNum" placeholder="Ej. 1018293847" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regNames">Nombres *</label>
+                <input type="text" class="form-control" id="regNames" placeholder="Ingresa tus nombres" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regSurnames">Apellidos *</label>
+                <input type="text" class="form-control" id="regSurnames" placeholder="Ingresa tus apellidos" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regEmail">Correo Electrónico *</label>
+                <input type="email" class="form-control" id="regEmail" placeholder="correo@institucion.edu.co" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regTypePart">Tipo de Participación *</label>
+                <select class="form-control" id="regTypePart" required>
+                  <option value="Asistente">Asistente</option>
+                  <option value="Ponente">Ponente</option>
+                  <option value="Conferencista">Conferencista / Invitado</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regCountry">País de Residencia *</label>
+                <input type="text" class="form-control" id="regCountry" placeholder="Ej. Colombia" value="Colombia" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regCity">Ciudad de Residencia *</label>
+                <input type="text" class="form-control" id="regCity" placeholder="Ej. Bogotá" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="regInst">Institución, Universidad o Empresa a la que Pertenece *</label>
+                <input type="text" class="form-control" id="regInst" placeholder="Ej. Universidad Distrital Francisco José de Caldas" required>
+              </div>
+
+            </div>
+
+            <div style="margin-top:2rem; text-align:center;">
+              <button type="submit" class="btn btn-primary" style="padding:1rem 2.5rem; font-size:1.05rem;">
+                <i class="bi bi-send-check-fill"></i> Registrar y Enviar Información por Correo
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         COMITÉS
+         ========================================== -->
+    <section id="comites" class="section-bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge blue-badge"><i class="bi bi-people-fill"></i> Equipo Organizador</span>
+          <h2 class="section-title">Comités del Congreso</h2>
+          <p class="section-description">
+            Equipo directivo, docente y científico responsable de la articulación de TECNOVA 2026.
+          </p>
+        </div>
+
+        <div class="tabs-header" id="committeeTabs">
+          <button class="tab-btn active" data-category="organizador">Comité Organizador</button>
+          <button class="tab-btn" data-category="cientifico">Comité Científico</button>
+          <button class="tab-btn" data-category="academico">Comité Académico</button>
+          <button class="tab-btn" data-category="logistico">Comité Logístico</button>
+          <button class="tab-btn" data-category="comunicaciones">Comité Comunicaciones</button>
+        </div>
+
+        <div class="committee-grid" id="committeeMembersGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         LUGAR DEL CONGRESO
+         ========================================== -->
+    <section id="lugar">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge"><i class="bi bi-geo-alt-fill"></i> Sede Presencial</span>
+          <h2 class="section-title">Lugar del Congreso</h2>
+          <p class="section-description">
+            Ubicación estratégica e instalaciones académicas para las actividades presenciales del congreso.
+          </p>
+        </div>
+
+        <div class="venue-grid">
+          <div class="venue-card">
+            <h3>Sede Aduanilla de Paiba</h3>
+            <p style="color:var(--text-secondary); margin-bottom:1.5rem; font-size:1.02rem;">
+              Universidad Distrital Francisco José de Caldas
+            </p>
+
+            <div class="venue-detail">
+              <i class="bi bi-geo-alt"></i>
+              <div>
+                <h5>Dirección</h5>
+                <p>Calle 13 # 31 – 75. Bogotá, Colombia.</p>
+              </div>
+            </div>
+
+            <div class="venue-detail">
+              <i class="bi bi-building"></i>
+              <div>
+                <h5>Espacios</h5>
+                <p>Auditorio Principal Aduanilla de Paiba, Foyer de Prototipos y Salas de Networking.</p>
+              </div>
+            </div>
+
+            <div class="venue-detail">
+              <i class="bi bi-globe2"></i>
+              <div>
+                <h5>Sesiones Virtuales</h5>
+                <p>Plataforma Virtual Interactiva TECNOVA (Transmisión en vivo para ponentes y asistentes remotos).</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <!-- Google Maps Embed for Aduanilla de Paiba -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.924296996695!2d-74.0906208249666!3d4.60764199536706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f997672db9061%3A0x6b8aa7519bb5a0a3!2sAduanilla%20de%20Paiba!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         PROGRAMA (AGENDA)
+         ========================================== -->
+    <section id="programa" class="section-bg-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge blue-badge"><i class="bi bi-clock-fill"></i> Agenda General</span>
+          <h2 class="section-title">Programa del Evento</h2>
+          <p class="section-description">
+            Programación diaria distribuida en jornadas presenciales (8:00 a.m. - 5:00 p.m.) y ponencias virtuales (6:30 p.m. - 8:00 p.m.).
+          </p>
+        </div>
+
+        <div class="day-selector" id="agendaDays">
+          <div class="day-btn active" data-day="day1">
+            <h4>Miércoles 11 Nov</h4>
+            <span>Jornada Inaugural</span>
+          </div>
+          <div class="day-btn" data-day="day2">
+            <h4>Jueves 12 Nov</h4>
+            <span>Jornada Empleabilidad</span>
+          </div>
+          <div class="day-btn" data-day="day3">
+            <h4>Viernes 13 Nov</h4>
+            <span>Jornada Emprendimiento</span>
+          </div>
+        </div>
+
+        <div class="agenda-table-wrapper">
+          <table class="agenda-table">
+            <thead>
+              <tr>
+                <th>Hora</th>
+                <th>Actividad</th>
+                <th>Lugar</th>
+                <th>Responsable</th>
+              </tr>
+            </thead>
+            <tbody id="agendaTableBody">
+              <!-- Populated dynamically by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CONTACTO & FORMULARIO DIRECTO A CORREO
+         ========================================== -->
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-card">
+          <div style="text-align:center; margin-bottom:2rem;">
+            <span class="section-badge"><i class="bi bi-envelope-fill"></i> Atención e Inquietudes</span>
+            <h2 style="font-size:2rem; color:var(--blue-navy); margin-top:0.5rem; margin-bottom:0.75rem;">
+              ¿Tienes alguna pregunta o propuesta sobre TECNOVA 2026?
+            </h2>
+            <p style="color:var(--text-secondary); font-size:1.02rem; max-width:620px; margin:0 auto;">
+              Envía tu mensaje directamente al equipo organizador. El sistema preparará la transmisión directa a <strong>tecred@usbbog.edu.co</strong>.
+            </p>
+          </div>
+
+          <div class="email-transmission-badge">
+            <i class="bi bi-shield-check" style="font-size:1.2rem; color:var(--orange-primary);"></i>
+            <span>Canal Oficial de Transmisión Directa: <strong>tecred@usbbog.edu.co</strong></span>
+          </div>
+
+          <!-- Direct Interactive Contact Form -->
+          <form id="contactDirectForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="contactName">Tu Nombre Completo *</label>
+                <input type="text" class="form-control" id="contactName" placeholder="Ej. Dr. Carlos Ruiz" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactEmail">Tu Correo Electrónico *</label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="correo@institucion.edu.co" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="contactSubject">Asunto de la Consulta *</label>
+                <input type="text" class="form-control" id="contactSubject" placeholder="Ej. Consulta sobre certificación de ponencia" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="contactMessage">Mensaje o Inquietud *</label>
+                <textarea class="form-control" id="contactMessage" rows="4" placeholder="Escribe aquí tu pregunta o solicitud..." required></textarea>
+              </div>
+            </div>
+
+            <div style="margin-top:1.5rem; display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+              <button type="submit" class="btn btn-primary" style="padding:0.85rem 2rem;">
+                <i class="bi bi-send-fill"></i> Enviar Mensaje a tecred@usbbog.edu.co
+              </button>
+              <a href="mailto:tecred@usbbog.edu.co" class="contact-email-btn" style="margin-bottom:0;">
+                <i class="bi bi-envelope-at-fill" style="color:var(--orange-primary);"></i> Abrir Correo Directo
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>TECNOVA <span>2026</span></h3>
+          <p>
+            I Congreso Internacional de Innovación Tecnológica Aplicada – “Conocimiento aplicado para el desarrollo”.
+          </p>
+          <p style="margin-top:0.75rem; font-size:0.85rem; color:#64748B;">
+            Plataforma impulsada por la Red TEC-RED y las Instituciones de Educación Superior aliadas.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Enlaces Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="#presentacion">Presentación</a></li>
+            <li><a href="#areas">Áreas Temáticas</a></li>
+            <li><a href="#convocatoria">Convocatoria</a></li>
+            <li><a href="#envios">Envío de Resúmenes</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Información</h4>
+          <ul class="footer-links">
+            <li><a href="#fechas">Fechas Importantes</a></li>
+            <li><a href="#comites">Comités Académicos</a></li>
+            <li><a href="#lugar">Sede Aduanilla</a></li>
+            <li><a href="#programa">Agenda General</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Revista Aliada</h4>
+          <ul class="footer-links">
+            <li><a href="https://revistas.udistrital.edu.co/index.php/vinculos/3" target="_blank">Revista Vínculos</a></li>
+            <li><a href="#inscripcion">Formulario de Registro</a></li>
+            <li><a href="mailto:tecred@usbbog.edu.co">Contacto Directo</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Congreso TECNOVA & Red TEC-RED. Todos los derechos reservados.</div>
+        <div style="color:var(--orange-primary); font-weight:700;">TEC-RED Bogotá, Colombia</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       MODAL 1: ACCREDITATION BADGE PASS
+       ========================================== -->
+  <div class="modal-backdrop" id="badgeModal">
+    <div class="modal-window">
+      <button class="modal-close" id="closeBadgeModal">&times;</button>
+      
+      <div style="text-align:center;">
+        <i class="bi bi-check-circle-fill" style="font-size:3rem; color:var(--orange-primary);"></i>
+        <h3 style="color:var(--blue-navy); margin-top:0.5rem;">¡Inscripción Registrada!</h3>
+        <p style="color:var(--text-secondary); font-size:0.95rem;">
+          Has quedado inscrito en el Congreso TECNOVA 2026. Se ha preparado el resumen para transmitir a <strong>tecred@usbbog.edu.co</strong>.
+        </p>
+      </div>
+
+      <div class="badge-card-result">
+        <div class="badge-logo">TECNOVA 2026</div>
+        <div class="badge-name" id="badgeName">Nombre Completo</div>
+        <div class="badge-role" id="badgeRole">ASISTENTE</div>
+        <div class="badge-info-row" id="badgeInst">Universidad Distrital</div>
+        <div class="badge-info-row" id="badgeDoc">CC: 00000000</div>
+        <div class="badge-info-row" id="badgeCityCountry">Bogotá, Colombia</div>
+        
+        <div class="qr-placeholder">
+          <svg viewBox="0 0 100 100" width="100%" height="100%">
+            <rect width="100" height="100" fill="#ffffff" />
+            <path d="M0 0h30v30H0zM10 10h10v10H10zM70 0h30v30H70zM80 10h10v10H80zM0 70h30v30H0zM10 80h10v10H10zM40 40h20v20H40zM40 10h10v20H40zM10 40h20v10H10zM70 40h20v10H70zM60 70h10v20H60zM80 80h20v10H80z" fill="#0f172a"/>
+          </svg>
+        </div>
+        <div style="font-size:0.75rem; color:#94A3B8; margin-top:0.5rem;">PASE DIGITAL DE ACREDITACIÓN GRATUITA</div>
+      </div>
+
+      <div style="margin-top:1.5rem; display:flex; gap:0.75rem; flex-wrap:wrap; justify-content:center;">
+        <button class="btn btn-primary" id="btnSendRegEmail"><i class="bi bi-envelope-check-fill"></i> Transmitir a tecred@usbbog.edu.co</button>
+        <button class="btn btn-secondary" onclick="window.print();"><i class="bi bi-printer-fill"></i> Imprimir Credencial</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 2: ABSTRACT SUBMISSION TEMPLATE GENERATOR
+       ========================================== -->
+  <div class="modal-backdrop" id="abstractModal">
+    <div class="modal-window" style="max-width:700px;">
+      <button class="modal-close" id="closeAbstractModal">&times;</button>
+      
+      <div style="margin-bottom:1.5rem;">
+        <h3 style="color:var(--blue-navy);"><i class="bi bi-file-earmark-plus-fill" style="color:var(--orange-primary);"></i> Formulario de Envío de Resumen</h3>
+        <p style="color:var(--text-secondary); font-size:0.92rem;">
+          Completa la información para estructurar el resumen de ponencia que se enviará automáticamente a <strong>tecred@usbbog.edu.co</strong>.
+        </p>
+      </div>
+
+      <form id="abstractForm">
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label class="form-label">Título de la Ponencia *</label>
+          <input type="text" class="form-control" id="absTitle" placeholder="Ej. Aplicación de IA Agéntica para el Monitoreo Agrícola" required>
+        </div>
+
+        <div class="form-group" style="margin-bottom:1rem;">
+          <label class="form-label">Autores (Máximo 4) *</label>
+          <input type="text" class="form-control" id="absAuthors" placeholder="Ej. Juan Pérez (UDFJC), Ana Gómez (UMNG)" required>
+        </div>
+
+        <div class="form-grid" style="margin-bottom:1rem;">
+          <div class="form-group">
+            <label class="form-label">Área Temática *</label>
+            <select class="form-control" id="absArea" required>
+              <option value="Área 01: Desarrollo Tecnológico e Innovación Aplicada">Área 01: Desarrollo Tecnológico</option>
+              <option value="Área 02: IA, Analítica de Datos y Automatización">Área 02: IA & Analítica de Datos</option>
+              <option value="Área 03: IoT y Sistemas Inteligentes">Área 03: IoT & Sistemas Inteligentes</option>
+              <option value="Área 04: Transformación Digital & Software">Área 04: Transformación Digital</option>
+              <option value="Área 05: Ciberseguridad & Privacidad">Área 05: Ciberseguridad</option>
+              <option value="Área 06: Realidad Inmersiva & Videojuegos">Área 06: Realidad Inmersiva</option>
+              <option value="Área 07: Sostenibilidad & Ciudades Inteligentes">Área 07: Sostenibilidad</option>
+              <option value="Área 08: Innovación Educativa">Área 08: Innovación Educativa</option>
+              <option value="Área 09: Gestión del Conocimiento">Área 09: Gestión del Conocimiento</option>
+              <option value="Área 10: Emprendimiento & Transferencia">Área 10: Emprendimiento & Transferencia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Modalidad de Presentación *</label>
+            <select class="form-control" id="absModality" required>
+              <option value="Presencial (Bogotá)">Presencial (Bogotá)</option>
+              <option value="Virtual (Plataforma TECNOVA)">Virtual (Internacional)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:1.5rem;">
+          <label class="form-label">Resumen (Máximo 600 palabras) *</label>
+          <textarea class="form-control" id="absText" rows="6" placeholder="Describe brevemente el problema, objetivo, metodología, resultados principales y contribución..." required></textarea>
+        </div>
+
+        <div style="text-align:right;">
+          <button type="submit" class="btn btn-primary">
+            <i class="bi bi-envelope-paper-fill"></i> Generar y Enviar a tecred@usbbog.edu.co
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 3: VERIFICACIÓN Y CONFIRMACIÓN DE ENVÍO DE CORREO (NUEVO)
+       ========================================== -->
+  <div class="modal-backdrop" id="emailStatusModal">
+    <div class="modal-window" style="max-width:650px;">
+      <button class="modal-close" id="closeEmailStatusModal">&times;</button>
+      
+      <div style="text-align:center; margin-bottom:1.5rem;">
+        <i class="bi bi-envelope-check-fill" style="font-size:3.2rem; color:var(--orange-primary);"></i>
+        <h3 style="color:var(--blue-navy); margin-top:0.5rem;" id="emailStatusTitle">Confirmación de Envío a Correo</h3>
+        <p style="color:var(--text-secondary); font-size:0.95rem;">
+          Se ha generado la información y estructurado el envío directo hacia la cuenta del congreso.
+        </p>
+      </div>
+
+      <div style="background-color:var(--bg-subtle); border:1px solid var(--blue-border); padding:1.25rem; border-radius:var(--radius-md); margin-bottom:1.5rem;">
+        <div style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.4rem;">
+          Destinatario Oficial:
+        </div>
+        <div style="font-family:monospace; font-weight:700; color:var(--blue-navy); font-size:1.1rem; margin-bottom:1rem;">
+          tecred@usbbog.edu.co
+        </div>
+
+        <div style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.4rem;">
+          Asunto del Mensaje:
+        </div>
+        <div style="font-size:0.95rem; font-weight:700; color:var(--blue-dark); margin-bottom:1rem;" id="emailStatusSubject">
+          -
+        </div>
+
+        <div style="font-size:0.85rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.4rem;">
+          Vista Previa del Contenido Generado:
+        </div>
+        <pre style="background:#FFF; border:1px solid var(--border-color); padding:0.85rem; border-radius:var(--radius-sm); font-size:0.85rem; max-height:160px; overflow-y:auto; font-family:monospace; white-space:pre-wrap;" id="emailStatusBody">-</pre>
+      </div>
+
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center;">
+        <button class="btn btn-primary" id="btnLaunchMailClient">
+          <i class="bi bi-box-arrow-up-right"></i> Abrir en Mi Cliente de Correo
+        </button>
+        <button class="btn btn-secondary" id="btnCopyEmailContent">
+          <i class="bi bi-clipboard-check"></i> Copiar Texto al Portapapeles
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MODAL 4: ZOOM DE IMAGEN DEL CONGRESO (NUEVO)
+       ========================================== -->
+  <div class="modal-backdrop" id="imageZoomModal">
+    <div class="modal-window image-zoom-window">
+      <button class="modal-close" id="closeZoomModal" style="background:#FFF;">&times;</button>
+      <div style="text-align:center; margin-bottom:1rem;">
+        <h4 style="color:#FFF;"><i class="bi bi-image-fill" style="color:var(--orange-primary);"></i> TECNOVA 2026 - Imagen Oficial del Congreso</h4>
+      </div>
+      <img src="assets/tecnova_hero.jpg" alt="TECNOVA 2026 Banner Oficial Ampliado" class="zoom-image">
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
