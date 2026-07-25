@@ -1,24 +1,46 @@
 /* ==========================================================================
-   TECNOVA 2026 - TEC-RED Interactive Application Script
+   TECNOVA 2026 - MAIN JAVASCRIPT
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initCountdownTimer();
+  // Countdown Timer
+  initCountdown();
+
+  // Area Search Filter
   initAreaSearch();
-  initCommitteeTabs();
-  initAgendaTabs();
-  initRegistrationForm();
+
+  // Committees Data & Render
+  initCommittees();
+
+  // Schedule Data & Render
+  initSchedule();
+
+  // Registration Form Modal
+  initRegistrationModal();
+
+  // Abstract Submission Modal
   initAbstractModal();
-  initContactDirectForm();
+
+  // Contact Form
+  initContactForm();
+
+  // Email Status Modal
+  initEmailStatusModal();
+
+  // Image Zoom Modal
   initImageZoomModal();
+
+  // Mobile Menu Toggle
   initMobileMenu();
-  initActiveNavHighlight();
+
+  // Smooth Scroll Active Link Update
+  initScrollSpy();
 });
 
 /* ==========================================================================
-   1. Live Countdown Timer (Target: Nov 11, 2026)
+   1. COUNTDOWN TIMER
    ========================================================================== */
-function initCountdownTimer() {
+function initCountdown() {
   const targetDate = new Date('November 11, 2026 08:00:00').getTime();
 
   function updateTimer() {
@@ -54,7 +76,7 @@ function initCountdownTimer() {
 }
 
 /* ==========================================================================
-   2. Areas Search & Filter
+   2. AREA SEARCH FILTER
    ========================================================================== */
 function initAreaSearch() {
   const searchInput = document.getElementById('areaSearchInput');
@@ -70,7 +92,7 @@ function initAreaSearch() {
       const desc = card.querySelector('.area-desc').innerText.toLowerCase();
 
       if (title.includes(term) || desc.includes(term)) {
-        card.style.display = 'flex';
+        card.style.display = 'block';
       } else {
         card.style.display = 'none';
       }
@@ -79,7 +101,7 @@ function initAreaSearch() {
 }
 
 /* ==========================================================================
-   3. Committee Tabs
+   3. COMMITTEES DATA & RENDER
    ========================================================================== */
 const committeesData = {
   organizador: [
@@ -115,7 +137,7 @@ const committeesData = {
   ]
 };
 
-function initCommitteeTabs() {
+function initCommittees() {
   const tabBtns = document.querySelectorAll('#committeeTabs .tab-btn');
   const grid = document.getElementById('committeeMembersGrid');
 
@@ -150,11 +172,15 @@ function initCommitteeTabs() {
 }
 
 function getInitials(name) {
-  return name.split(' ').map(n => n[0]).slice(0, 2).join('').toUpperCase();
+  const parts = name.split(' ').filter(p => p.length > 2);
+  if (parts.length >= 2) {
+    return (parts[0][0] + parts[1][0]).toUpperCase();
+  }
+  return name.substring(0, 2).toUpperCase();
 }
 
 /* ==========================================================================
-   4. Agenda & Schedule Tabs
+   4. SCHEDULE DATA & RENDER
    ========================================================================== */
 const scheduleData = {
   day1: [
@@ -184,18 +210,17 @@ const scheduleData = {
     { time: '08:30 a 13:00', activity: 'Jornada de emprendimiento', place: 'Auditorio Aduanilla de Paiba' },
     { time: '13:00 a 14:00', activity: 'Receso (Almuerzo)', place: 'Sede Aduanilla de Paiba' },
     { time: '14:00 a 16:30', activity: 'Ponencias presenciales', place: 'Auditorio Aduanilla de Paiba' },
-    { time: '16:30 a 17:00', activity: 'Cierre del Congreso', place: 'Auditorio Aduanilla de Paiba' },
-    { time: '17:00 a 18:00', activity: 'Reunión TED-RED', place: 'Auditorio Aduanilla de Paiba' }
+    { time: '16:30 a 17:00', activity: 'Cierre del Congreso', place: 'Auditorio Aduanilla de Paiba' }
   ]
 };
 
-function initAgendaTabs() {
+function initSchedule() {
   const dayBtns = document.querySelectorAll('#agendaDays .day-btn');
   const tbody = document.getElementById('agendaTableBody');
 
   if (!tbody || !dayBtns.length) return;
 
-    function renderDay(dayKey) {
+  function renderDay(dayKey) {
     const list = scheduleData[dayKey] || [];
     tbody.innerHTML = list.map(item => `
       <tr>
@@ -212,7 +237,8 @@ function initAgendaTabs() {
     btn.addEventListener('click', () => {
       dayBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      renderDay(btn.dataset.day);
+      const dayKey = btn.dataset.day;
+      renderDay(dayKey);
     });
   });
 
@@ -220,9 +246,9 @@ function initAgendaTabs() {
 }
 
 /* ==========================================================================
-   5. Registration Form & Digital Pass Generation + Email Transmission
+   5. REGISTRATION FORM MODAL
    ========================================================================== */
-function initRegistrationForm() {
+function initRegistrationModal() {
   const form = document.getElementById('registrationForm');
   const modal = document.getElementById('badgeModal');
   const closeModal = document.getElementById('closeBadgeModal');
@@ -246,95 +272,73 @@ function initRegistrationForm() {
     const inst = document.getElementById('regInst').value;
 
     const fullName = `${names} ${surnames}`;
-
-    // Fill badge content
     document.getElementById('badgeName').innerText = fullName;
-    document.getElementById('badgeRole').innerText = typePart.toUpperCase();
-    document.getElementById('badgeInst').innerText = inst;
     document.getElementById('badgeDoc').innerText = `${docType}: ${docNum}`;
-    document.getElementById('badgeCityCountry').innerText = `${city}, ${country}`;
+    document.getElementById('badgeType').innerText = typePart;
+    document.getElementById('badgeInst').innerText = inst;
 
-    // Build Email mailto link
     const subject = `[Inscripción TECNOVA 2026] - ${fullName} (${typePart})`;
-    const body = 
-      `REGISTRO DE INSCRIPCIÓN AL I CONGRESO INTERNACIONAL TECNOVA 2026\n` +
-      `===============================================================\n` +
-      `Nombres y Apellidos: ${fullName}\n` +
-      `Documento: ${docType} ${docNum}\n` +
-      `Correo Electrónico: ${email}\n` +
-      `Institución/Universidad: ${inst}\n` +
-      `Tipo de Participación: ${typePart}\n` +
-      `Ubicación: ${city}, ${country}\n` +
-      `===============================================================\n` +
-      `Solicitud generada a través de la web oficial del Congreso TECNOVA 2026 / TEC-RED.`;
+    const body =
+`SOLICITUD DE INSCRIPCIÓN - CONGRESO TECNOVA 2026
+
+Datos del Asistente:
+--------------------------------------------
+Nombres: ${names}
+Apellidos: ${surnames}
+Documento: ${docType} ${docNum}
+Correo Electrónico: ${email}
+País: ${country}
+Ciudad: ${city}
+Institución / Empresa: ${inst}
+Tipo de Participación: ${typePart}
+
+Por favor confirmar la inscripción y expedir el comprobante de registro.`;
 
     currentMailto = `mailto:tecred@usbbog.edu.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    // Show Badge Modal
-    modal.classList.add('active');
-
-    // Also trigger mailto in background
-    window.location.href = currentMailto;
+    if (modal) modal.style.display = 'flex';
   });
+
+  if (closeModal) {
+    closeModal.addEventListener('click', () => {
+      if (modal) modal.style.display = 'none';
+    });
+  }
 
   if (btnSendRegEmail) {
     btnSendRegEmail.addEventListener('click', () => {
       if (currentMailto) {
-        window.open(currentMailto, '_blank');
+        window.location.href = currentMailto;
       }
     });
   }
-
-  if (closeModal) {
-    closeModal.addEventListener('click', () => {
-      modal.classList.remove('active');
-      form.reset();
-    });
-  }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-    }
-  });
 }
 
 /* ==========================================================================
-   6. Abstract Submission Modal & Email Verification Modal
+   6. ABSTRACT SUBMISSION MODAL
    ========================================================================== */
-let activeMailtoUrl = '';
-let activeMailBody = '';
-
 function initAbstractModal() {
   const modal = document.getElementById('abstractModal');
   const openBtn = document.getElementById('openAbstractModalBtn');
   const closeBtn = document.getElementById('closeAbstractModal');
   const form = document.getElementById('abstractForm');
 
-  if (!modal) return;
-
-  if (openBtn) {
-    openBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modal.classList.add('active');
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
     });
   }
 
-  if (closeBtn) {
+  if (closeBtn && modal) {
     closeBtn.addEventListener('click', () => {
-      modal.classList.remove('active');
+      modal.style.display = 'none';
     });
   }
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.remove('active');
-    }
-  });
 
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
       const title = document.getElementById('absTitle').value;
       const authors = document.getElementById('absAuthors').value;
       const area = document.getElementById('absArea').value;
@@ -342,106 +346,79 @@ function initAbstractModal() {
       const text = document.getElementById('absText').value;
 
       const subject = `Envío de Resumen TECNOVA 2026: ${title}`;
-      activeMailBody = 
-        `PROPUESTA DE PONENCIA PARA TECNOVA 2026 (TEC-RED)\n` +
-        `===================================================\n` +
-        `Título: ${title}\n` +
-        `Autores: ${authors}\n` +
-        `Área Temática: ${area}\n` +
-        `Modalidad de Presentación: ${mod}\n\n` +
-        `RESUMEN ESTRUCTURADO:\n${text}\n` +
-        `===================================================\n` +
-        `Enviado desde el portal oficial del Congreso TECNOVA 2026.`;
+      const body =
+`ENVÍO DE RESUMEN - CONGRESO TECNOVA 2026
 
-      activeMailtoUrl = `mailto:tecred@usbbog.edu.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(activeMailBody)}`;
+Título del Trabajo:
+${title}
 
-      modal.classList.remove('active');
-      form.reset();
+Autores:
+${authors}
 
-      // Show Status Modal
-      showEmailConfirmationModal("Envío de Resumen de Ponencia", subject, activeMailBody, activeMailtoUrl);
+Área Temática: ${area}
+Modalidad de Presentación: ${mod}
+
+Resumen Estructurado:
+--------------------------------------------
+${text}
+--------------------------------------------`;
+
+      const mailto = `mailto:tecred@usbbog.edu.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+
+      if (modal) modal.style.display = 'none';
     });
   }
 }
 
 /* ==========================================================================
-   7. Direct Contact Form (`#contactDirectForm`)
+   7. CONTACT FORM
    ========================================================================== */
-function initContactDirectForm() {
+function initContactForm() {
   const form = document.getElementById('contactDirectForm');
   if (!form) return;
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
     const name = document.getElementById('contactName').value;
     const email = document.getElementById('contactEmail').value;
     const subjectText = document.getElementById('contactSubject').value;
     const message = document.getElementById('contactMessage').value;
 
     const subject = `[Consulta TECNOVA 2026] ${subjectText}`;
-    activeMailBody = 
-      `MENSAJE DE CONSULTA - CONGRESO TECNOVA 2026\n` +
-      `=========================================\n` +
-      `De: ${name} <${email}>\n` +
-      `Asunto: ${subjectText}\n\n` +
-      `MENSAJE:\n${message}\n` +
-      `=========================================\n` +
-      `Transmitido desde la sección de Contacto del portal TECNOVA 2026 / TEC-RED.`;
+    const body =
+`CONSULTA DESDE EL PORTAL WEB - TECNOVA 2026
 
-    activeMailtoUrl = `mailto:tecred@usbbog.edu.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(activeMailBody)}`;
+Nombre: ${name}
+Correo: ${email}
+Asunto: ${subjectText}
 
-    form.reset();
-    showEmailConfirmationModal("Mensaje de Contacto", subject, activeMailBody, activeMailtoUrl);
+Mensaje:
+${message}`;
+
+    const mailto = `mailto:tecred@usbbog.edu.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
   });
 }
 
-/* Helper to display the Email Confirmation Modal */
-function showEmailConfirmationModal(typeTitle, subject, body, mailtoUrl) {
+/* ==========================================================================
+   8. EMAIL STATUS MODAL
+   ========================================================================== */
+function initEmailStatusModal() {
   const statusModal = document.getElementById('emailStatusModal');
   const closeBtn = document.getElementById('closeEmailStatusModal');
-  const titleElem = document.getElementById('emailStatusTitle');
-  const subjectElem = document.getElementById('emailStatusSubject');
-  const bodyElem = document.getElementById('emailStatusBody');
-  const btnLaunch = document.getElementById('btnLaunchMailClient');
-  const btnCopy = document.getElementById('btnCopyEmailContent');
-
-  if (titleElem) titleElem.innerText = `Confirmación: ${typeTitle}`;
-  if (subjectElem) subjectElem.innerText = subject;
-  if (bodyElem) bodyElem.innerText = body;
-
-  if (btnLaunch) {
-    btnLaunch.onclick = () => {
-      window.location.href = mailtoUrl;
-    };
-  }
-
-  if (btnCopy) {
-    btnCopy.onclick = () => {
-      const fullText = `Destinatario: tecred@usbbog.edu.co\nAsunto: ${subject}\n\n${body}`;
-      navigator.clipboard.writeText(fullText).then(() => {
-        alert('¡Texto del correo copiado exitosamente al portapapeles!');
-      }).catch(() => {
-        alert('No se pudo copiar automáticamente. Puedes seleccionar el texto manualmente.');
-      });
-    };
-  }
-
-  if (statusModal) statusModal.classList.add('active');
+  if (!statusModal) return;
 
   if (closeBtn) {
-    closeBtn.onclick = () => statusModal.classList.remove('active');
+    closeBtn.addEventListener('click', () => {
+      statusModal.style.display = 'none';
+    });
   }
-
-  statusModal.onclick = (e) => {
-    if (e.target === statusModal) statusModal.classList.remove('active');
-  };
-
-  // Trigger mailto immediately as well
-  window.location.href = mailtoUrl;
 }
 
 /* ==========================================================================
-   8. Image Zoom Modal (Hero Banner Expansion)
+   9. IMAGE ZOOM MODAL
    ========================================================================== */
 function initImageZoomModal() {
   const heroImage = document.getElementById('heroImage');
@@ -449,30 +426,21 @@ function initImageZoomModal() {
   const modal = document.getElementById('imageZoomModal');
   const closeBtn = document.getElementById('closeZoomModal');
 
-  if (!modal) return;
-
-  function openZoom() {
-    modal.classList.add('active');
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
   }
 
-  function closeZoom() {
-    modal.classList.remove('active');
+  if (closeBtn && modal) {
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
   }
-
-  if (heroImage) heroImage.addEventListener('click', openZoom);
-  if (openBtn) openBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    openZoom();
-  });
-  if (closeBtn) closeBtn.addEventListener('click', closeZoom);
-
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeZoom();
-  });
 }
 
 /* ==========================================================================
-   9. Mobile Navigation & Scroll Highlighting
+   10. MOBILE MENU TOGGLE
    ========================================================================== */
 function initMobileMenu() {
   const toggle = document.getElementById('mobileMenuToggle');
@@ -484,18 +452,19 @@ function initMobileMenu() {
     menu.classList.toggle('active');
     const icon = toggle.querySelector('i');
     if (icon) {
-      icon.className = menu.classList.contains('active') ? 'bi bi-x-lg' : 'bi bi-list';
+      if (menu.classList.contains('active')) {
+        icon.className = 'bi bi-x-lg';
+      } else {
+        icon.className = 'bi bi-list';
+      }
     }
-  });
-
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('active');
-    });
   });
 }
 
-function initActiveNavHighlight() {
+/* ==========================================================================
+   11. SCROLLSPY (ACTIVE NAV LINK ON SCROLL)
+   ========================================================================== */
+function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
@@ -520,8 +489,4 @@ function initActiveNavHighlight() {
       }
     });
   });
-}  /* ==========================================================================
-   TECNOVA 2026 - TEC-RED Interactive Application Script
-   ========================================================================== */
-
-document.addEventListener(
+}
