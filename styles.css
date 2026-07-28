@@ -1483,7 +1483,9 @@ section {
   transition: var(--transition-fast);
 }
 
-.modal-backdrop.active {
+.modal-backdrop.active,
+.modal-backdrop[style*="display: flex"],
+.modal-backdrop[style*="display:flex"] {
   opacity: 1;
   pointer-events: auto;
 }

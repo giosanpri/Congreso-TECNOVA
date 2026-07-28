@@ -130,6 +130,7 @@ const committeesData = {
   ],
   logistico: [
     { name: 'Lely Adriana Luengas Contreras', role: 'Comité Logístico', inst: 'Universidad Distrital Francisco José de Caldas' },
+    { name: 'Esperanza Camargo Casallas', role: 'Comité Logístico', inst: 'Universidad Distrital Francisco José de Caldas' },
     { name: 'Ariana Tavera Ochoa', role: 'Comité Logístico', inst: 'Universidad Distrital Francisco José de Caldas' }
   ],
   comunicaciones: [
@@ -184,7 +185,7 @@ function getInitials(name) {
    ========================================================================== */
 const scheduleData = {
   day1: [
-    { time: '07:30 a 08:30', activity: 'Inscripción', place: 'Auditorio Aduanilla de Paiba' },
+    { time: '08:00 a 08:30', activity: 'Inscripción', place: 'Auditorio Aduanilla de Paiba' },
     { time: '08:30 a 09:00', activity: 'Instalación del evento', place: 'Auditorio Aduanilla de Paiba' },
     { time: '09:00 a 09:45', activity: 'Conferencia magistral', place: 'Auditorio Aduanilla de Paiba' },
     { time: '09:45 a 10:15', activity: 'Receso (Café)', place: 'Auditorio Aduanilla de Paiba' },
@@ -197,7 +198,7 @@ const scheduleData = {
     { time: '18:30 a 20:00', activity: 'Ponencias virtuales', place: 'Plataforma virtual' }
   ],
   day2: [
-    { time: '07:30 a 08:30', activity: 'Inscripción', place: 'Auditorio Aduanilla de Paiba' },
+    { time: '08:00 a 08:30', activity: 'Inscripción', place: 'Auditorio Aduanilla de Paiba' },
     { time: '08:30 a 12:00', activity: 'Jornada de empleabilidad', place: 'Auditorio Aduanilla de Paiba' },
     { time: '12:00 a 14:00', activity: 'Receso (Almuerzo)', place: 'Sede Aduanilla de Paiba' },
     { time: '14:00 a 16:30', activity: 'Ponencias presenciales', place: 'Auditorio Aduanilla de Paiba' },
@@ -206,7 +207,7 @@ const scheduleData = {
     { time: '18:30 a 20:00', activity: 'Ponencias virtuales', place: 'Plataforma virtual' }
   ],
   day3: [
-    { time: '07:30 a 08:30', activity: 'Inscripción', place: 'Auditorio Aduanilla de Paiba' },
+    { time: '08:00 a 08:30', activity: 'Inscripción', place: 'Auditorio Aduanilla de Paiba' },
     { time: '08:30 a 13:00', activity: 'Jornada de emprendimiento', place: 'Auditorio Aduanilla de Paiba' },
     { time: '13:00 a 14:00', activity: 'Receso (Almuerzo)', place: 'Sede Aduanilla de Paiba' },
     { time: '14:00 a 16:30', activity: 'Ponencias presenciales', place: 'Auditorio Aduanilla de Paiba' },
@@ -246,12 +247,46 @@ function initSchedule() {
 }
 
 /* ==========================================================================
+   MODAL UTILITY HELPERS
+   ========================================================================== */
+function openModal(modal) {
+  if (!modal) return;
+  modal.style.display = 'flex';
+  modal.classList.add('active');
+}
+
+function closeModal(modal) {
+  if (!modal) return;
+  modal.style.display = 'none';
+  modal.classList.remove('active');
+}
+
+// Close modals when clicking backdrop or pressing Escape key
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.modal-backdrop').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-backdrop').forEach(modal => {
+        closeModal(modal);
+      });
+    }
+  });
+});
+
+/* ==========================================================================
    5. REGISTRATION FORM MODAL
    ========================================================================== */
 function initRegistrationModal() {
   const form = document.getElementById('registrationForm');
   const modal = document.getElementById('badgeModal');
-  const closeModal = document.getElementById('closeBadgeModal');
+  const closeModalBtn = document.getElementById('closeBadgeModal');
   const btnSendRegEmail = document.getElementById('btnSendRegEmail');
 
   if (!form) return;
@@ -272,10 +307,15 @@ function initRegistrationModal() {
     const inst = document.getElementById('regInst').value;
 
     const fullName = `${names} ${surnames}`;
-    document.getElementById('badgeName').innerText = fullName;
-    document.getElementById('badgeDoc').innerText = `${docType}: ${docNum}`;
-    document.getElementById('badgeType').innerText = typePart;
-    document.getElementById('badgeInst').innerText = inst;
+    const badgeNameElem = document.getElementById('badgeName');
+    const badgeDocElem = document.getElementById('badgeDoc');
+    const badgeTypeElem = document.getElementById('badgeType');
+    const badgeInstElem = document.getElementById('badgeInst');
+
+    if (badgeNameElem) badgeNameElem.innerText = fullName;
+    if (badgeDocElem) badgeDocElem.innerText = `${docType}: ${docNum}`;
+    if (badgeTypeElem) badgeTypeElem.innerText = typePart;
+    if (badgeInstElem) badgeInstElem.innerText = inst;
 
     const subject = `[Inscripción TECNOVA 2026] - ${fullName} (${typePart})`;
     const body =
@@ -296,12 +336,12 @@ Por favor confirmar la inscripción y expedir el comprobante de registro.`;
 
     currentMailto = `mailto:tecred@usbbog.edu.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    if (modal) modal.style.display = 'flex';
+    openModal(modal);
   });
 
-  if (closeModal) {
-    closeModal.addEventListener('click', () => {
-      if (modal) modal.style.display = 'none';
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+      closeModal(modal);
     });
   }
 
@@ -320,18 +360,20 @@ Por favor confirmar la inscripción y expedir el comprobante de registro.`;
 function initAbstractModal() {
   const modal = document.getElementById('abstractModal');
   const openBtn = document.getElementById('openAbstractModalBtn');
-  const closeBtn = document.getElementById('closeAbstractModal');
+  const closeModalBtn = document.getElementById('closeAbstractModal');
   const form = document.getElementById('abstractForm');
 
   if (openBtn && modal) {
-    openBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
+    openBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openModal(modal);
     });
   }
 
-  if (closeBtn && modal) {
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
+  if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeModal(modal);
     });
   }
 
@@ -366,7 +408,7 @@ ${text}
       const mailto = `mailto:tecred@usbbog.edu.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
 
-      if (modal) modal.style.display = 'none';
+      closeModal(modal);
     });
   }
 }
@@ -407,12 +449,12 @@ ${message}`;
    ========================================================================== */
 function initEmailStatusModal() {
   const statusModal = document.getElementById('emailStatusModal');
-  const closeBtn = document.getElementById('closeEmailStatusModal');
+  const closeModalBtn = document.getElementById('closeEmailStatusModal');
   if (!statusModal) return;
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', () => {
-      statusModal.style.display = 'none';
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+      closeModal(statusModal);
     });
   }
 }
@@ -424,17 +466,24 @@ function initImageZoomModal() {
   const heroImage = document.getElementById('heroImage');
   const openBtn = document.getElementById('openZoomHeroBtn');
   const modal = document.getElementById('imageZoomModal');
-  const closeBtn = document.getElementById('closeZoomModal');
+  const closeModalBtn = document.getElementById('closeZoomModal');
 
-  if (openBtn && modal) {
-    openBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
+  if (heroImage && modal) {
+    heroImage.addEventListener('click', () => {
+      openModal(modal);
     });
   }
 
-  if (closeBtn && modal) {
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
+  if (openBtn && modal) {
+    openBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openModal(modal);
+    });
+  }
+
+  if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', () => {
+      closeModal(modal);
     });
   }
 }
