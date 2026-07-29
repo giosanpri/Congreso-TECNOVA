@@ -119,6 +119,7 @@ const committeesData = {
     { name: 'Javier Alejandro Sáenz Leguizamon', role: 'Comité Científico', inst: 'Universidad Distrital Francisco José de Caldas' },
     { name: 'Gustavo Andrés Romero Duque', role: 'Comité Científico', inst: 'Universidad Distrital Francisco José de Caldas' },
     { name: 'Gloria Andrea Cavanzo Nisso', role: 'Comité Científico', inst: 'Universidad Distrital Francisco José de Caldas' },
+    { name: 'Esperanza Camargo Casallas', role: 'Comité Científico', inst: 'Universidad Distrital Francisco José de Caldas' },
     { name: 'Yadira García Pacheco', role: 'Comité Científico', inst: 'Fundación Universitaria Compensar' }
   ],
   academico: [
@@ -130,7 +131,6 @@ const committeesData = {
   ],
   logistico: [
     { name: 'Lely Adriana Luengas Contreras', role: 'Comité Logístico', inst: 'Universidad Distrital Francisco José de Caldas' },
-    { name: 'Esperanza Camargo Casallas', role: 'Comité Logístico', inst: 'Universidad Distrital Francisco José de Caldas' },
     { name: 'Ariana Tavera Ochoa', role: 'Comité Logístico', inst: 'Universidad Distrital Francisco José de Caldas' }
   ],
   comunicaciones: [
